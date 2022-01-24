@@ -93,9 +93,6 @@ public class Client implements Serializable{
         if (!Objects.equals(this.account, other.account)) {
             return false;
         }
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
         return true;
     }  
     

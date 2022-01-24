@@ -1,7 +1,7 @@
 
-package shoestore;
+package myshop;
 
-import myclasses.App;
+import app.App;
 
 public class MyShop {
     public static void main(String[] args){

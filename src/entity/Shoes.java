@@ -2,11 +2,14 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -87,9 +90,7 @@ public class Shoes implements Serializable{
         }
         final Shoes other = (Shoes) obj;
         
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
+        
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }

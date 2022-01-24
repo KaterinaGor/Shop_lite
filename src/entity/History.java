@@ -7,6 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+
 
 
 @Entity
@@ -14,7 +18,9 @@ public class History implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @OneToOne
     private Shoes shoes;
+    @OneToOne
     private Client client;
     private int price;
     private int month;
@@ -82,7 +88,7 @@ public class History implements Serializable{
                 + "shoes: " + shoes.toString()
                 + ", client: " + client.toString()
                 + ", price: " + price
-                + ",year: " + year
+                + ", year: " + year
                 + ", month: " + month
                 ;
     }
@@ -115,6 +121,12 @@ public class History implements Serializable{
         }
         final History other = (History) obj;
         
+        if (!Objects.equals(this.shoes, other.shoes)) {
+            return false;
+        }
+        if (!Objects.equals(this.client, other.client)) {
+            return false;
+        }
         if (this.price != other.price) {
             return false;
         }
@@ -124,16 +136,8 @@ public class History implements Serializable{
         if (this.year != other.year) {
             return false;
         }
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
-        if (!Objects.equals(this.shoes, other.shoes)) {
-            return false;
-        }
-        if (!Objects.equals(this.client, other.client)) {
-            return false;
-        }
         return true;
+        
     }
 
 }
